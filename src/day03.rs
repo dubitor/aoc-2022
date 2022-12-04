@@ -28,10 +28,9 @@ fn item_in_both_comparts(line: &str) -> u8 {
 }
 
 fn part2(input_lines: &str) -> u32 {
-    let lines: Vec<&str> = input_lines
-        .lines()
-        .collect();
-    lines.chunks(3)
+    let lines: Vec<&str> = input_lines.lines().collect();
+    lines
+        .chunks(3)
         .map(item_in_all_three_lines)
         .map(priority)
         .sum()
@@ -77,12 +76,18 @@ CrZsJsPPZsGzwwsLwLmpwMDw"
 
     #[test]
     fn check_day03_part2_case1() {
-        assert_eq!(day03("vJrwpWtwJgWrhcsFMMfFFhFp
+        assert_eq!(
+            day03(
+                "vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 PmmdzqPrVvPwwTWBwg
 wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
-CrZsJsPPZsGzwwsLwLmpwMDw").1, "70".to_string())
+CrZsJsPPZsGzwwsLwLmpwMDw"
+            )
+            .1,
+            "70".to_string()
+        )
     }
 
     #[test]
